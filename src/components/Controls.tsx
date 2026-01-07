@@ -49,8 +49,8 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
         </h2>
 
         <div className="space-y-3">
-          {/* Angle Section */}
-          <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-sm">
+          {/* Angle Section - Always Relevant */}
+          <div className="bg-white border text-gray-800 border-gray-200 rounded-xl p-5 shadow-sm transition-opacity duration-300">
             <h3 className="text-lg font-bold text-gray-700 mb-4 uppercase tracking-wide flex items-center gap-2">
               <span>📐</span> Angle
             </h3>
@@ -70,7 +70,7 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
           </div>
 
           {/* Forces Section */}
-          <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-sm">
+          <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
             <h3 className="text-lg font-bold text-gray-700 mb-4 uppercase tracking-wide flex items-center gap-2">
               <span>💪</span> Forces
             </h3>
@@ -153,12 +153,13 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
             )}
 
             {/* Tension Control */}
-            <div className={`mb-4 pb-4 border-b border-gray-100 ${getSpotlightClass(2)}`}>
+            <div className={`mb-4 pb-4 border-b border-gray-100 ${getSpotlightClass(2)} transition-opacity duration-300 ${simulation.scenario === 'basic' || simulation.scenario === 'pulley' ? 'opacity-100' : 'opacity-40 grayscale'}`}>
               <label className="flex items-center text-base font-medium mb-2 cursor-pointer hover:text-red-700 transition-colors">
                 <input
                   type="checkbox"
                   checked={simulation.showTension}
                   onChange={(e) => onUpdateSimulation({ showTension: e.target.checked })}
+                  disabled={simulation.scenario === 'external_force'}
                   className="mr-3 w-5 h-5 accent-red-600"
                 />
                 <span className="text-red-600 font-semibold">Force (F<sub>1</sub>)</span>
@@ -170,18 +171,19 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
                 max="200"
                 value={simulation.tension}
                 onChange={(e) => onUpdateSimulation({ tension: Number(e.target.value) })}
-                disabled={!simulation.showTension}
+                disabled={!simulation.showTension || simulation.scenario === 'external_force'}
                 className="w-full h-2 accent-red-600"
               />
             </div>
 
             {/* Push Control */}
-            <div className={`${getSpotlightClass(2)}`}>
+            <div className={`${getSpotlightClass(2)} transition-opacity duration-300 ${simulation.scenario === 'basic' || simulation.scenario === 'external_force' ? 'opacity-100' : 'opacity-40 grayscale'}`}>
               <label className="flex items-center text-base font-medium mb-2 cursor-pointer hover:text-cyan-700 transition-colors">
                 <input
                   type="checkbox"
                   checked={simulation.showPush}
                   onChange={(e) => onUpdateSimulation({ showPush: e.target.checked })}
+                  disabled={simulation.scenario === 'pulley'}
                   className="mr-3 w-5 h-5 accent-cyan-600"
                 />
                 <span className="text-cyan-600 font-semibold">Force (F<sub>2</sub>)</span>
@@ -193,7 +195,7 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
                 max="200"
                 value={simulation.push}
                 onChange={(e) => onUpdateSimulation({ push: Number(e.target.value) })}
-                disabled={!simulation.showPush}
+                disabled={!simulation.showPush || simulation.scenario === 'pulley'}
                 className="w-full h-2 accent-cyan-600"
               />
             </div>

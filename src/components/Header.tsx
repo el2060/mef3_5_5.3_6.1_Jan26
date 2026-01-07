@@ -21,12 +21,7 @@ const Header = ({ onShowInfo }: HeaderProps) => {
           ℹ️ App Info
         </button>
       </div>
-      <div className="mt-1 flex flex-wrap gap-2 text-xs md:text-sm">
-        <span className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">📚 Step-by-Step Tutorial</span>
-        <span className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">🎮 Interactive Exploration</span>
-        <span className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">📐 Real-Time Equations</span>
-        <span className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">🧮 Dynamic Force Scaling</span>
-      </div>
+
     </div>
   );
 };
