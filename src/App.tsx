@@ -107,6 +107,11 @@ function App() {
                 onMarkAnswered={markQuestionAnswered}
                 simulation={simulation}
                 onUpdateSimulation={updateSimulation}
+                hasStarted={hasStarted}
+                onStart={() => {
+                  setHasStarted(true);
+                  nextStep(1); // Auto-load Step 1
+                }}
               />
               <Instructions />
             </div>
@@ -114,7 +119,7 @@ function App() {
 
           {/* CENTER: Visualization - Takes remaining space */}
           <div className={`${viewMode === 'guided' ? 'lg:col-span-7' : 'lg:col-span-5'} border-b lg:border-b-0 lg:border-r border-gray-200 transition-all duration-300`}>
-            <Visualization simulation={simulation} />
+            <Visualization simulation={simulation} hasStarted={hasStarted} />
             <Equations
               simulation={simulation}
               onToggle={() => updateSimulation({ showEquations: !simulation.showEquations })}
