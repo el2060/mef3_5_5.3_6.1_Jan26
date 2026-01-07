@@ -92,7 +92,7 @@ function App() {
                 onReset={resetGuidedLearning}
                 onFreePlay={enterFreePlay}
                 onShowFeedback={showFeedback}
-                onShowFeedback={showFeedback}
+
                 onMarkAnswered={markQuestionAnswered}
                 simulation={simulation}
                 onUpdateSimulation={updateSimulation}
