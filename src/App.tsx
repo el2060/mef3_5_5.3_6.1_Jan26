@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SimulationState, GuidedLearningState, initialSimulationState, initialGuidedLearningState } from './types/simulation';
 import Header from './components/Header';
-import Instructions from './components/Instructions';
+
 import GuidedLearning from './components/GuidedLearning';
 import Controls from './components/Controls';
 import Visualization from './components/Visualization';
@@ -113,7 +113,7 @@ function App() {
                   nextStep(1); // Auto-load Step 1
                 }}
               />
-              <Instructions />
+
             </div>
           </div>
 
