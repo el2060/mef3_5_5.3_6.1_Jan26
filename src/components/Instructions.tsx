@@ -20,14 +20,9 @@ const Instructions = () => {
       {isExpanded && (
         <div className="mt-3 space-y-3">
 
-          <div className="flex gap-4">
             <div className="flex-1 bg-blue-50/80 rounded-lg p-4 border-2 border-blue-100">
-              <p className="font-bold text-blue-800 text-base mb-1">1️⃣ Guided Mode</p>
-              <p className="text-sm text-blue-900/80 font-medium">Follow steps to learn.</p>
-            </div>
-            <div className="flex-1 bg-green-50/80 rounded-lg p-4 border-2 border-green-100">
-              <p className="font-bold text-green-800 text-base mb-1">2️⃣ Free Play</p>
-              <p className="text-sm text-green-900/80 font-medium">Experiment with controls.</p>
+              <p className="font-bold text-blue-800 text-base mb-1">Guided Mode</p>
+              <p className="text-sm text-blue-900/80 font-medium">Follow the steps to learn about Free Body Diagrams.</p>
             </div>
           </div>
 
@@ -53,8 +48,9 @@ const Instructions = () => {
             </div>
           </div>
         </div>
-      )}
-    </div>
+  )
+}
+    </div >
   );
 };
 

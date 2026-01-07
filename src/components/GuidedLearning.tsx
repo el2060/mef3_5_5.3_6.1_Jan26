@@ -11,7 +11,6 @@ interface GuidedLearningProps {
   onNextStep: (step: number) => void;
 
   onReset: () => void;
-  onFreePlay: () => void;
   onShowFeedback: (text: string) => void;
   onMarkAnswered: (questionId: string) => void;
   simulation: SimulationState;
@@ -23,7 +22,6 @@ const GuidedLearning = ({
   answeredQuestions,
   onNextStep,
   onReset,
-  onFreePlay,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onShowFeedback: _onShowFeedback, // Keeping for compatibility but not using for questions
   onMarkAnswered,
@@ -84,32 +82,6 @@ const GuidedLearning = ({
       </div>
 
       <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 transition-all duration-500">
-
-        {/* Step 0: Free Play Mode */}
-        {currentStep === 0 && (
-          <div className="text-center py-6 animate-fadeIn">
-            <div className="text-5xl mb-4">🛠️</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Free Play Mode</h3>
-            <p className="text-lg text-gray-600 mb-6">
-              Use the full control panel on the right to experiment freely.
-            </p>
-            <div className="p-4 bg-white rounded-xl border border-blue-100 shadow-sm mb-6 text-left">
-              <h4 className="font-bold text-blue-800 mb-2">Try this:</h4>
-              <ul className="list-disc list-inside text-gray-600 space-y-1">
-                <li>Set friction to max (μ=1.0)</li>
-                <li>Increase angle until block slides</li>
-                <li>Add a pulley mass</li>
-              </ul>
-            </div>
-
-            <button
-              onClick={onReset}
-              className="px-6 py-3 bg-white border-2 border-blue-600 text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors"
-            >
-              Restart Guided Mode
-            </button>
-          </div>
-        )}
 
         {/* Step 1 */}
         {currentStep === 1 && (
@@ -395,10 +367,10 @@ const GuidedLearning = ({
             <p className="text-lg text-gray-600 mb-6">You've mastered the basics of Free Body Diagrams.</p>
 
             <button
-              onClick={onFreePlay}
+              onClick={onReset}
               className="w-full bg-gray-800 hover:bg-black text-white py-4 rounded-xl font-bold shadow-lg transition-transform transform hover:scale-105 uppercase tracking-wide text-lg"
             >
-              Start Free Play Mode
+              Restart Learning Module
             </button>
           </div>
         )}

@@ -40,9 +40,7 @@ function App() {
     setGuidedLearning(initialGuidedLearningState);
   };
 
-  const enterFreePlay = () => {
-    setGuidedLearning(prev => ({ ...prev, currentStep: 0 }));
-  };
+
 
   const resetAll = () => {
     resetSimulation();
@@ -90,7 +88,6 @@ function App() {
                 answeredQuestions={guidedLearning.answeredQuestions}
                 onNextStep={nextStep}
                 onReset={resetGuidedLearning}
-                onFreePlay={enterFreePlay}
                 onShowFeedback={showFeedback}
 
                 onMarkAnswered={markQuestionAnswered}
