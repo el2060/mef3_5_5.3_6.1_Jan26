@@ -138,12 +138,12 @@ const Controls = ({ simulation, onUpdateSimulation, onReset, currentStep }: Cont
           {/* Reset Button */}
           <button
             onClick={onReset}
-            className="w-full bg-red-500 hover:bg-red-600 text-white font-extrabold rounded-xl px-4 py-4 uppercase text-lg shadow-md hover:shadow-lg transition-all duration-200 mt-2"
+            className="w-full bg-gray-200 hover:bg-red-50 text-gray-700 hover:text-red-600 font-bold rounded-lg px-4 py-3 text-sm shadow-sm hover:shadow transition-all duration-200 mt-4 flex items-center justify-center gap-2 border border-gray-200 hover:border-red-200"
           >
-            🔄 Reset Everything
+            <span>🔄</span> Reset Everything
           </button>
-          <p className="text-sm text-center text-gray-500 mt-2 font-medium">
-            Resets all controls and guided learning steps
+          <p className="text-xs text-center text-gray-400 mt-2">
+            Clears all progress and settings
           </p>
         </div>
       </div>

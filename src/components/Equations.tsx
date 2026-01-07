@@ -12,16 +12,16 @@ const Equations = ({ simulation, onToggle }: EquationsProps) => {
 
   return (
     <div className="p-4 md:p-5 bg-white">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 flex items-center gap-2">
-          <span className="text-2xl">🧮</span>
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
+          <span className="text-xl">🧮</span>
           Equations
         </h2>
         <button
           onClick={onToggle}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-4 py-2 text-base shadow transition-all duration-200"
+          className="text-blue-600 hover:text-blue-800 text-sm font-semibold hover:underline"
         >
-          {simulation.showEquations ? 'Hide' : 'Show'}
+          {simulation.showEquations ? 'Hide Equations' : 'Show Equations'}
         </button>
       </div>
 
